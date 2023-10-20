@@ -1,6 +1,6 @@
 name: 'Rudderstack event action'
 description: 'Sends an event to Rudderstack'
-author: 'Matt Flaherty'
+author: 'Matt Flaherty <mwflaher@alum.mit.edu>'
 
 inputs:
   name:
@@ -11,7 +11,7 @@ inputs:
     required: false
     default: ''
   properties:
-    description: 'Additional properties formatted as JSON string'
+    description: 'Additional event properties formatted as JSON string'
     required: false
     default: '{}'
 
