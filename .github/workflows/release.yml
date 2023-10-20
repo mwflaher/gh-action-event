@@ -1,0 +1,80 @@
+name: Release
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+on:
+  push:
+    tags:
+        - release
+        
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GH_TOKEN }}
+      
+      - name: Configure git identity
+        run: |
+          git config --global user.name "Matt Flaherty" && \
+          git config --global user.email "mwflaher@alum.mit.edu"
+      
+      - name: Fetch tags
+        run: git fetch --prune --unshallow --tags --force
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'yarn'
+
+      - name: Install yarn
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --frozen-lockfile
+
+      - name: Install auto
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: global add auto
+
+      - name: Build the cli
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
+        
+      - name: Get the change version type
+        run: echo "AUTO_VERSION=$(auto version)" >> $GITHUB_ENV
+        
+      - name: Bump child versions
+        run: VERSION=$AUTO_VERSION yarn version-children
+
+      - name: Bump parent version
+        run: VERSION=$AUTO_VERSION yarn version-parent
+
+      - name: Get the new version number
+        run: echo "PKG_VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
+
+      - name: Create a changelog with auto
+        run: auto changelog --no-git-commit
+
+      - name: Commit, version and push CHANGELOG.md and package.json files
+        run: |
+          git add . && \
+          git commit --no-verify --message "Bump version to v$PKG_VERSION [skip ci]" && \
+          git tag -a v$PKG_VERSION -m v$PKG_VERSION && \
+          git push origin main && \
+          git push --follow-tags --set-upstream origin main && \
+          echo "VERSION_SHA=$(git rev-list -n 1 v$PKG_VERSION)" >> $GITHUB_ENV
+
+      - name: Generate the release with auto
+        run: auto release --base-branch	main --use-version v$PKG_VERSION --to $VERSION_SHA
+
+      - name: Delete the release tag
+        run: git push origin :refs/tags/release && git tag -d release
