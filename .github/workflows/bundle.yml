@@ -1,4 +1,4 @@
-name: Check
+name: Bundle
 
 on:
   push:
@@ -41,6 +41,7 @@ jobs:
           cmd: bundle
 
       - name: Compare Expected and Actual Directories
+        id: diff
         run: |
           if [ "$(git diff --ignore-space-at-eol --text dist/ | wc -l)" -gt "0" ]; then
             echo "Detected uncommitted changes after build. See status below:"

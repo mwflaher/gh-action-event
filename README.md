@@ -1,1 +1,1 @@
-# Rudderstack event for Github Actions
+# Rudderstack Events for Github Actions
