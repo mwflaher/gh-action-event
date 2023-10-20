@@ -16,7 +16,7 @@ describe('action', () => {
   })
 
   it('sets the success output', async () => {
-    const analytics = new Analytics("abcde")
+    const analytics = new Analytics('abcde')
     const trackMock = jest.spyOn(analytics, 'track').mockImplementation()
     getInputMock.mockImplementation((name: string): string => {
       switch (name) {
@@ -30,12 +30,10 @@ describe('action', () => {
     })
     await main.run(analytics)
     expect(runMock).toHaveReturned()
-    expect(trackMock).toHaveBeenCalledWith(
-      {
-        event: 'test_event',
-        userId: 'test_user',
-      }
-    )
+    expect(trackMock).toHaveBeenCalledWith({
+      event: 'test_event',
+      userId: 'test_user'
+    })
     expect(setOutputMock).toHaveBeenNthCalledWith(
       1,
       'success',
@@ -44,11 +42,11 @@ describe('action', () => {
   })
 
   it('sets a failed status', async () => {
-    const analytics: Analytics = <Analytics><unknown>null;
+    const analytics: Analytics = <Analytics>(<unknown>null)
     await main.run(analytics)
-      expect(runMock).toHaveReturned()
-      expect(setFailedMock).toHaveBeenCalledWith(
-        expect.stringContaining('Run failed:')
-      )
+    expect(runMock).toHaveReturned()
+    expect(setFailedMock).toHaveBeenCalledWith(
+      expect.stringContaining('Run failed:')
+    )
   })
 })

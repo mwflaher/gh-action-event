@@ -9,13 +9,12 @@ export async function run(client: Analytics): Promise<void> {
 
     client.track({
       event: event,
-      userId: user,
+      userId: user
       // properties: properties,
     })
 
     core.setOutput('success', 'true')
-  }
-  catch (error) {
-    if (error instanceof Error) core.setFailed("Run failed: " + error.message)
+  } catch (error) {
+    if (error instanceof Error) core.setFailed('Run failed: ' + error.message)
   }
 }
