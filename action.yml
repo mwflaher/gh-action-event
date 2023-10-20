@@ -1,18 +1,23 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Rudderstack event action'
+description: 'Sends an event to Rudderstack'
+author: 'Matt Flaherty'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  name:
+    description: 'The name of the event'
     required: true
-    default: '1000'
+  user:
+    description: 'The user for which the event is being sent'
+    required: false
+    default: ''
+  properties:
+    description: 'Additional properties formatted as JSON string'
+    required: false
+    default: '{}'
 
-# Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  success:
+    description: 'Returns "true" if event was a success, "false" otherwise'
 
 runs:
   using: node20
