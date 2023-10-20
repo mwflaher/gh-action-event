@@ -34,19 +34,19 @@ describe('action', () => {
   })
 
   it('sets a failed status', async () => {
-  //   // getInputMock.mockImplementation((name: string): string => {
-  //   //   switch (name) {
-  //   //     case 'success':
-  //   //       return 'false'
-  //   //     default:
-  //   //       return 'false'
-  //   //   }
-  //   // })
-  //   await main.run()
-  //   expect(runMock).toHaveReturned()
-  //   expect(setFailedMock).toHaveBeenNthCalledWith(
-  //     1,
-  //     'run failed'
-  //   )
+    //   // getInputMock.mockImplementation((name: string): string => {
+    //   //   switch (name) {
+    //   //     case 'success':
+    //   //       return 'false'
+    //   //     default:
+    //   //       return 'false'
+    //   //   }
+    //   // })
+    //   await main.run()
+    //   expect(runMock).toHaveReturned()
+    //   expect(setFailedMock).toHaveBeenNthCalledWith(
+    //     1,
+    //     'run failed'
+    //   )
   })
 })
