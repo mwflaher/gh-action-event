@@ -1,3 +1,4 @@
+import Analytics from '@rudderstack/rudder-sdk-node'
 import * as core from '@actions/core'
 import * as main from '../src/main'
 
@@ -16,6 +17,8 @@ describe('action', () => {
   })
 
   it('sets the success output', async () => {
+    const analytics = new Analytics("abcde")
+    const trackMock = jest.spyOn(analytics, 'track').mockImplementation()
     // getInputMock.mockImplementation((name: string): string => {
     //   switch (name) {
     //     case 'success':
@@ -24,8 +27,9 @@ describe('action', () => {
     //       return 'false'
     //   }
     // })
-    await main.run()
+    await main.run(analytics)
     expect(runMock).toHaveReturned()
+    expect(trackMock).toBeCalledTimes(1)
     expect(setOutputMock).toHaveBeenNthCalledWith(
       1,
       'success',

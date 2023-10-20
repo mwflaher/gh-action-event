@@ -1,20 +1,21 @@
 import * as core from '@actions/core'
-// import { isStringObject } from 'util/types'
+import type Analytics from '@rudderstack/rudder-sdk-node'
 
-// const RUDDERSTACK_WRITE_KEY: string =
-// process.env.GH_RUDDERSTACK_ACTION_KEY || '2X1p3cBEe8JeaUkIrcgLgYWd6aa'
-
-/**
- * @returns {Promise<void>} Resolves when the action is complete.
- */
-export async function run(): Promise<void> {
+export async function run(client: Analytics): Promise<void> {
   try {
-    // const event: string = core.getInput('name')
-    // const user: string = core.getInput('user')
-    // const properties: string = core.getInput('properties')
+    const event: string = core.getInput('name')
+    const user: string = core.getInput('user')
+    const properties: string = core.getInput('properties')
+
+    client.track({
+      event: event,
+      userId: user,
+      // properties: properties,
+    })
 
     core.setOutput('success', 'true')
-  } catch (error) {
+  }
+  catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
 }
