@@ -1,4 +1,4 @@
-name: Bundle
+name: Verify
 
 on:
   push:
@@ -9,7 +9,6 @@ on:
   pull_request:
     paths-ignore:
       - '**.md'
-  workflow_dispatch:
 
 jobs:
   check-dist:
