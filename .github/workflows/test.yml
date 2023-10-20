@@ -57,4 +57,4 @@ jobs:
           properties: "{}"
 
       - name: Print Output
-        run: echo "success:"${{ steps.test-action.outputs }}"
+        run: echo "${{ steps.test-action.outputs }}"
