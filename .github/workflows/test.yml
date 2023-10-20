@@ -49,6 +49,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build Action
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: bundle
+
       - name: Run Action
         uses: ./
         with:
@@ -57,4 +62,4 @@ jobs:
           properties: "{}"
 
       - name: Print Output
-        run: echo "${{ steps.test-action.outputs }}"
+        run: echo "${{ steps.test-action.outputs.success }}"
