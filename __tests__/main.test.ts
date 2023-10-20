@@ -5,6 +5,7 @@ import * as main from '../src/main'
 /* Mock the GitHub Actions core library */
 const getInputMock = jest.spyOn(core, 'getInput')
 const setOutputMock = jest.spyOn(core, 'setOutput')
+const setFailedMock = jest.spyOn(core, 'setFailed')
 
 /* Mock the action's main function */
 const runMock = jest.spyOn(main, 'run')
@@ -43,19 +44,11 @@ describe('action', () => {
   })
 
   it('sets a failed status', async () => {
-    //   // getInputMock.mockImplementation((name: string): string => {
-    //   //   switch (name) {
-    //   //     case 'success':
-    //   //       return 'false'
-    //   //     default:
-    //   //       return 'false'
-    //   //   }
-    //   // })
-    //   await main.run()
-    //   expect(runMock).toHaveReturned()
-    //   expect(setFailedMock).toHaveBeenNthCalledWith(
-    //     1,
-    //     'run failed'
-    //   )
+    const analytics: Analytics = <Analytics><unknown>null;
+    await main.run(analytics)
+      expect(runMock).toHaveReturned()
+      expect(setFailedMock).toHaveBeenCalledWith(
+        expect.stringContaining('Run failed:')
+      )
   })
 })

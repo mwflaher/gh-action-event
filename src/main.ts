@@ -16,6 +16,6 @@ export async function run(client: Analytics): Promise<void> {
     core.setOutput('success', 'true')
   }
   catch (error) {
-    if (error instanceof Error) core.setFailed(error.message)
+    if (error instanceof Error) core.setFailed("Run failed: " + error.message)
   }
 }
