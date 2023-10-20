@@ -33,7 +33,7 @@ describe('action', () => {
     )
   })
 
-  // it('sets a failed status', async () => {
+  it('sets a failed status', async () => {
   //   // getInputMock.mockImplementation((name: string): string => {
   //   //   switch (name) {
   //   //     case 'success':
@@ -48,5 +48,5 @@ describe('action', () => {
   //     1,
   //     'run failed'
   //   )
-  // })
+  })
 })
