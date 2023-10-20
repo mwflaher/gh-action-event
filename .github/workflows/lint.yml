@@ -31,7 +31,7 @@ jobs:
       - name: Install Dependencies
         uses: borales/actions-yarn@v4
         with:
-          cmd: ci
+          cmd: install --frozen-lockfile
 
       - name: Lint
         uses: super-linter/super-linter/slim@v5
