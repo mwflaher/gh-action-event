@@ -3,9 +3,7 @@ import * as core from '@actions/core'
 import * as main from '../src/main'
 
 /* Mock the GitHub Actions core library */
-// const debugMock = jest.spyOn(core, 'debug')
-// const getInputMock = jest.spyOn(core, 'getInput')
-// const setFailedMock = jest.spyOn(core, 'setFailed')
+const getInputMock = jest.spyOn(core, 'getInput')
 const setOutputMock = jest.spyOn(core, 'setOutput')
 
 /* Mock the action's main function */
@@ -19,17 +17,24 @@ describe('action', () => {
   it('sets the success output', async () => {
     const analytics = new Analytics("abcde")
     const trackMock = jest.spyOn(analytics, 'track').mockImplementation()
-    // getInputMock.mockImplementation((name: string): string => {
-    //   switch (name) {
-    //     case 'success':
-    //       return 'true'
-    //     default:
-    //       return 'false'
-    //   }
-    // })
+    getInputMock.mockImplementation((name: string): string => {
+      switch (name) {
+        case 'name':
+          return 'test_event'
+        case 'user':
+          return 'test_user'
+        default:
+          return ''
+      }
+    })
     await main.run(analytics)
     expect(runMock).toHaveReturned()
-    expect(trackMock).toBeCalledTimes(1)
+    expect(trackMock).toHaveBeenCalledWith(
+      {
+        event: 'test_event',
+        userId: 'test_user',
+      }
+    )
     expect(setOutputMock).toHaveBeenNthCalledWith(
       1,
       'success',
