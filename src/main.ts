@@ -2,7 +2,7 @@ import * as core from '@actions/core'
 import { isStringObject } from 'util/types'
 
 // const RUDDERSTACK_WRITE_KEY: string =
-  // process.env.RUDDERSTACK_WRITE_KEY || '2X1p3cBEe8JeaUkIrcgLgYWd6aa'
+// process.env.RUDDERSTACK_WRITE_KEY || '2X1p3cBEe8JeaUkIrcgLgYWd6aa'
 
 /**
  * @returns {Promise<void>} Resolves when the action is complete.
