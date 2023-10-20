@@ -9,6 +9,7 @@ import * as core from '@actions/core'
  */
 export async function run(): Promise<void> {
   try {
+    console.log("MWF:RUNNING")
     // const event: string = core.getInput('name')
     // const user: string = core.getInput('user')
     // const properties: string = core.getInput('properties')

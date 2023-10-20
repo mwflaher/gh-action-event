@@ -1,6 +1,6 @@
 {
-  "name": "rudderstack-action",
-  "description": "Rudderstack Action for GitHub Actions",
+  "name": "gh-rudderstack-action",
+  "description": "Rudderstack Events for GitHub Actions",
   "version": "0.1.0",
   "author": "Matt Flaherty <mwflaher@alum.mit.edu>",
   "private": true,
