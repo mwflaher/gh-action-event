@@ -39,12 +39,14 @@ jobs:
       - name: Run Tests
         uses: borales/actions-yarn@v4
         with:
-          cmd: ci-test
+          cmd: test
 
   test-action:
     name: Action Test
     runs-on: ubuntu-latest
-
+    env:
+      RUDDERSTACK_DATAPLANE_URL:  ${{ secrets.RUDDERSTACK_DATAPLANE_URL }}
+      RUDDERSTACK_WRITE_KEY:  ${{ secrets.RUDDERSTACK_WRITE_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -1,14 +1,14 @@
-import dotenv from 'dotenv'
 import Analytics from '@rudderstack/rudder-sdk-node'
 import { run } from './main'
 
-dotenv.config()
+const RUDDERSTACK_DATAPLANE_URL: string =
+  process.env.RUDDERSTACK_DATAPLANE_URL || ''
+const RUDDERSTACK_WRITE_KEY: string = process.env.RUDDERSTACK_WRITE_KEY || ''
 
-const DATAPLANE_URL: string = process.env.RS_DATAPLANE_URL || ''
-const RUDDERSTACK_WRITE_KEY: string = process.env.RS_WRITE_KEY || ''
+console.log(`Initializing client for ${process.env.RUDDERSTACK_DATAPLANE_URL}`)
 
 const client = new Analytics(RUDDERSTACK_WRITE_KEY, {
-  dataPlaneUrl: DATAPLANE_URL
+  dataPlaneUrl: RUDDERSTACK_DATAPLANE_URL
 })
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
