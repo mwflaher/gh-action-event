@@ -5,16 +5,19 @@ export async function run(client: Analytics): Promise<void> {
   try {
     const event: string = core.getInput('name')
     const user: string = core.getInput('user')
-    const properties: string = core.getInput('properties')
+    // const properties: string = core.getInput('properties')
 
     client.track({
-      event: event,
+      event,
       userId: user
       // properties: properties,
     })
 
     core.setOutput('success', 'true')
   } catch (error) {
-    if (error instanceof Error) core.setFailed('Run failed: ' + error.message)
+    if (error instanceof Error) {
+      const errorMessage = `Run failed: ${error.message}`
+      core.setFailed(errorMessage)
+    }
   }
 }
