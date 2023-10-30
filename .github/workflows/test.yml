@@ -39,7 +39,7 @@ jobs:
       - name: Run Tests
         uses: borales/actions-yarn@v4
         with:
-          cmd: ci-test
+          cmd: test
 
   test-action:
     name: Action Test
