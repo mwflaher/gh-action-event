@@ -25,7 +25,7 @@
   },
   "scripts": {
     "bundle": "npm run format:write && npm run package",
-    "ci-test": "jest",
+    "ci-test": "NODE_ENV=test jest",
     "format": "yarn format:write",
     "format:write": "prettier --write **/*.ts",
     "format:check": "prettier --check **/*.ts",
