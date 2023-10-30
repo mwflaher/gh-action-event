@@ -42,7 +42,7 @@ describe('action', () => {
   })
 
   it('sets a failed status', async () => {
-    const analytics: Analytics = <Analytics>(<unknown>null)
+    const analytics: Analytics = null as unknown as Analytics
     await main.run(analytics)
     expect(runMock).toHaveReturned()
     expect(setFailedMock).toHaveBeenCalledWith(
