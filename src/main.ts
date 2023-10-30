@@ -7,6 +7,8 @@ export async function run(client: Analytics): Promise<void> {
     const user: string = core.getInput('user')
     // const properties: string = core.getInput('properties')
 
+    console.log(`Sending event to ${process.env.RUDDERSTACK_DATAPLANE_URL}`)
+
     client.track({
       event,
       userId: user
