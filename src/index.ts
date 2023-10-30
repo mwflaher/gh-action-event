@@ -9,5 +9,9 @@ const client = new Analytics(RUDDERSTACK_WRITE_KEY, {
   dataPlaneUrl: RUDDERSTACK_DATAPLANE_URL
 })
 
+if (process.env.NODE_ENV === 'test') {
+  Analytics.prototype.track = () => console.log('test')
+}
+
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 run(client)
