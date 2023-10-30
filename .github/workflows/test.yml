@@ -45,8 +45,8 @@ jobs:
     name: Action Test
     runs-on: ubuntu-latest
     env:
-      RUDDERSTACK_DATAPLANE_URL: "localhost"
-      RUDDERSTACK_WRITE_KEY: "abcde"
+      RUDDERSTACK_DATAPLANE_URL:  ${{ secrets.RUDDERSTACK_DATAPLANE_URL }}
+      RUDDERSTACK_WRITE_KEY:  ${{ secrets.RUDDERSTACK_WRITE_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
