@@ -10,7 +10,10 @@ const client = new Analytics(RUDDERSTACK_WRITE_KEY, {
 })
 
 if (process.env.NODE_ENV === 'test') {
-  Analytics.prototype.track = () => console.log('test')
+  Analytics.prototype.track = () => {
+    console.log('test')
+    return client
+  }
 }
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
