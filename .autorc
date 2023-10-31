@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "git-tag",
+    "conventional-commits"
+  ],
+  "owner": "mwflaher",
+  "repo": "gh-rudderstack-action",
+  "name": "Matt Flaherty",
+  "email": "mwflaher@alum.mit.edu",
+  "onlyPublishWithReleaseLabel": true
+}
