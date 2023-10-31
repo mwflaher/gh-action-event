@@ -5,10 +5,6 @@
   "author": "Matt Flaherty <mwflaher@alum.mit.edu>",
   "private": true,
   "homepage": "https://github.com/mwflaher/gh-rudderstack-action",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mwflaher/gh-rudderstack-action.git"
-  },
   "bugs": {
     "url": "https://github.com/mwflaher/gh-rudderstack-action/issues"
   },
