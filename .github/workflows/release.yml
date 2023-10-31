@@ -47,7 +47,7 @@ jobs:
       - name: Build the package
         uses: borales/actions-yarn@v4
         with:
-          cmd: package
+          cmd: bundle
         
       - name: Get the change version type
         run: echo "AUTO_VERSION=$(auto version)" >> $GITHUB_ENV
