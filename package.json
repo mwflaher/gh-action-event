@@ -30,7 +30,7 @@
     "lint:write" : "eslint . -c ./.github/linters/.eslintrc.yml --fix",
     "format": "prettier --check **/*.ts",
     "format:write": "prettier --write **/*.ts",
-    "package": "ncc build src/index.ts --license license.txt"
+    "bundle": "ncc build src/index.ts --license license.txt"
   },
   "license": "MIT",
   "jest": {
