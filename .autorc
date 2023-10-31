@@ -3,7 +3,57 @@
     "git-tag",
     "conventional-commits"
   ],
-  "name": "Matt Flaherty",
-  "email": "mwflaher@alum.mit.edu",
-  "onlyPublishWithReleaseLabel": true
+  "owner": "mwflaher",
+  "repo": "gh-rudderstack-action",
+  "author": {
+    "name": "Matt Flaherty",
+    "email": "mwflaher@alum.mit.edu",
+  },
+  "baseBranch": "main",
+  "onlyPublishWithReleaseLabel": false,
+  "noVersionPrefix": false,
+  "noDefaultLabels": true,
+  "labels": [
+    {
+      "name": "major",
+      "changelogTitle": "Major Changes",
+      "description": "Increment the major version when merged",
+      "releaseType": "major",
+      "color": "#C5000B"
+    },
+    {
+      "name": "minor",
+      "changelogTitle": "Enhancements",
+      "description": "Increment the minor version when merged",
+      "releaseType": "minor",
+      "color": "#F1A60E"
+    },
+    {
+      "name": "patch",
+      "changelogTitle": "Bug Fixes",
+      "description": "Increment the patch version when merged",
+      "releaseType": "patch",
+      "color": "#870048"
+    },
+    {
+      "name": "documentation",
+      "changelogTitle": "Documentation",
+      "description": "Changes only affect the documentation",
+      "releaseType": "none",
+      "color": "#cfd3d7"
+    },
+    {
+      "name": "dependencies",
+      "changelogTitle": "Dependency Updates",
+      "description": "Update one or more dependencies version",
+      "releaseType": "none",
+      "color": "#8732bc"
+    },
+    {
+      "name": "skip-release",
+      "description": "Preserve the current version when merged",
+      "releaseType": "skip",
+      "color": "#bf5416"
+    }
+  ]
 }
