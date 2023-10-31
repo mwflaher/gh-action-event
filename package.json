@@ -20,6 +20,8 @@
     "node": ">=20"
   },
   "scripts": {
+    "cz": "git-cz",
+    "commitlint": "commitlint --edit",
     "prepare": "husky install",
     "test": "NODE_ENV=test DOTENV_CONFIG_PATH=.env.test node -r dotenv/config node_modules/.bin/jest",
     "lint:check": "eslint . -c ./.github/linters/.eslintrc.yml",
@@ -65,12 +67,16 @@
   "devDependencies": {
     "@auto-it/conventional-commits": "11.0.4",
     "@auto-it/git-tag": "11.0.4",
+    "@commitlint/cli": "18.2.0",
+    "@commitlint/config-conventional": "18.1.0",
     "@types/jest": "29.5.6",
     "@types/node": "20.8.9",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",
     "@vercel/ncc": "0.38.1",
     "auto": "11.0.4",
+    "commitizen": "4.3.0",
+    "cz-conventional-changelog": "3.3.0",
     "dotenv": "16.3.1",
     "eslint": "8.52.0",
     "eslint-plugin-github": "4.10.1",
