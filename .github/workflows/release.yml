@@ -28,7 +28,7 @@ jobs:
       - name: Fetch tags
         run: git fetch --prune --unshallow --tags --force
 
-      - name: Setup Node
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -44,10 +44,10 @@ jobs:
         with:
           cmd: global add auto
 
-      - name: Build the cli
+      - name: Build the package
         uses: borales/actions-yarn@v4
         with:
-          cmd: build
+          cmd: package
         
       - name: Get the change version type
         run: echo "AUTO_VERSION=$(auto version)" >> $GITHUB_ENV
