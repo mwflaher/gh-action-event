@@ -23,23 +23,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: yarn
 
-      - name: Install Dependencies
+      - name: Install dependencies
         uses: borales/actions-yarn@v4
         with:
           cmd: install --frozen-lockfile
 
-      - name: Build dist/ Directory
+      - name: Check format
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: format:check
+  
+      - name: Check lint
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint:check
+  
+      - name: Build 'dist/' directory
         uses: borales/actions-yarn@v4
         with:
           cmd: bundle
 
-      - name: Compare Expected and Actual Directories
+      - name: Compare expected and actual Directories
         id: diff
         run: |
           if [ "$(git diff --ignore-space-at-eol --text dist/ | wc -l)" -gt "0" ]; then
@@ -47,9 +57,3 @@ jobs:
             git diff --ignore-space-at-eol --text dist/
             exit 1
           fi
-
-      - uses: actions/upload-artifact@v3
-        if: ${{ failure() && steps.diff.conclusion == 'failure' }}
-        with:
-          name: dist
-          path: dist/

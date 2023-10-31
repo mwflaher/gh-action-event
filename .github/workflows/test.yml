@@ -26,16 +26,6 @@ jobs:
         with:
           cmd: install --frozen-lockfile
 
-      - name: Check Format
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: format:check
-
-      - name: Lint
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: lint
-
       - name: Run Tests
         uses: borales/actions-yarn@v4
         with:
