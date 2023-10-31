@@ -1,3 +1,15 @@
+# v0.3.1 (Tue Oct 31 2023)
+
+#### Bug Fixes
+
+- fix: rename fields ([@mwflaher](https://github.com/mwflaher))
+
+#### Authors: 1
+
+- Matt F ([@mwflaher](https://github.com/mwflaher))
+
+---
+
 # v0.2.0 (Tue Oct 31 2023)
 
 #### Enhancements
