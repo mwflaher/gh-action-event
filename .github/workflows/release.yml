@@ -52,28 +52,31 @@ jobs:
       - name: Get the change version type
         run: echo "AUTO_VERSION=$(auto version)" >> $GITHUB_ENV
         
-      - name: Bump the version
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: version --new-version $AUTO_VERSION --no-git-tag-version
+      - name: WTF is the version
+        run: echo $AUTO_VERSION
+        
+      # - name: Bump the version
+      #   uses: borales/actions-yarn@v4
+      #   with:
+      #     cmd: version --new-version $AUTO_VERSION --no-git-tag-version
       
-      - name: Get the new version number
-        run: echo "PKG_VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
+      # - name: Get the new version number
+      #   run: echo "PKG_VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
 
-      - name: Create a changelog with auto
-        run: auto changelog --no-git-commit
+      # - name: Create a changelog with auto
+      #   run: auto changelog --no-git-commit
 
-      - name: Commit, version and push CHANGELOG.md and package.json files
-        run: |
-          git add . && \
-          git commit --no-verify --message "Bump version to v$PKG_VERSION [skip ci]" && \
-          git tag -a v$PKG_VERSION -m v$PKG_VERSION && \
-          git push origin main && \
-          git push --follow-tags --set-upstream origin main && \
-          echo "VERSION_SHA=$(git rev-list -n 1 v$PKG_VERSION)" >> $GITHUB_ENV
+      # - name: Commit, version and push CHANGELOG.md and package.json files
+      #   run: |
+      #     git add . && \
+      #     git commit --no-verify --message "Bump version to v$PKG_VERSION [skip ci]" && \
+      #     git tag -a v$PKG_VERSION -m v$PKG_VERSION && \
+      #     git push origin main && \
+      #     git push --follow-tags --set-upstream origin main && \
+      #     echo "VERSION_SHA=$(git rev-list -n 1 v$PKG_VERSION)" >> $GITHUB_ENV
 
-      - name: Generate the release with auto
-        run: auto release --base-branch	main --use-version v$PKG_VERSION --to $VERSION_SHA
+      # - name: Generate the release with auto
+      #   run: auto release --base-branch	main --use-version v$PKG_VERSION --to $VERSION_SHA
 
-      - name: Delete the release tag
-        run: git push origin :refs/tags/release && git tag -d release
+      # - name: Delete the release tag
+      #   run: git push origin :refs/tags/release && git tag -d release
