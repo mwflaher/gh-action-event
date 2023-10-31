@@ -50,7 +50,7 @@ jobs:
           cmd: bundle
         
       - name: Get the change version type
-        run: echo "AUTO_VERSION=$(auto version)" >> $GITHUB_ENV
+        run: echo "AUTO_VERSION=$(auto version)"
         
       - name: Bump the version
         uses: borales/actions-yarn@v4
