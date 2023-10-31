@@ -26,10 +26,10 @@
   "scripts": {
     "prepare": "husky install",
     "test": "NODE_ENV=test DOTENV_CONFIG_PATH=.env.test node -r dotenv/config node_modules/.bin/jest",
-    "lint": "eslint . -c ./.github/linters/.eslintrc.yml",
-    "lint:write" : "eslint . -c ./.github/linters/.eslintrc.yml --fix",
-    "format": "prettier --check **/*.ts",
-    "format:write": "prettier --write **/*.ts",
+    "lint:check": "eslint . -c ./.github/linters/.eslintrc.yml",
+    "lint" : "eslint . -c ./.github/linters/.eslintrc.yml --fix",
+    "format:check": "prettier --check **/*.ts",
+    "format": "prettier --write **/*.ts",
     "bundle": "ncc build src/index.ts --license license.txt"
   },
   "license": "MIT",
