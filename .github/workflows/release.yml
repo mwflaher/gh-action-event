@@ -57,6 +57,8 @@ jobs:
 
       - name: Bump the version
         uses: borales/actions-yarn@v4
+        env:
+          AUTO_VERSION: ${{ env.AUTO_VERSION }}
         with:
           cmd: version --new-version $AUTO_VERSION --no-git-tag-version
       
