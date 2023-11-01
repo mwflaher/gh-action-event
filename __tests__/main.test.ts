@@ -20,9 +20,9 @@ describe('action', () => {
     const trackMock = jest.spyOn(analytics, 'track').mockImplementation()
     getInputMock.mockImplementation((name: string): string => {
       switch (name) {
-        case 'name':
+        case 'event':
           return 'test_event'
-        case 'user':
+        case 'userId':
           return 'test_user'
         default:
           return ''

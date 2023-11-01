@@ -3,10 +3,10 @@ description: 'Sends an event to Rudderstack'
 author: 'Matt Flaherty <mwflaher@alum.mit.edu>'
 
 inputs:
-  name:
+  event:
     description: 'The name of the event'
     required: true
-  user:
+  userId:
     description: 'The user for which the event is being sent'
     required: false
     default: ''

@@ -3,15 +3,15 @@ import type Analytics from '@rudderstack/rudder-sdk-node'
 
 export async function run(client: Analytics): Promise<void> {
   try {
-    const event: string = core.getInput('name')
-    const user: string = core.getInput('user')
+    const event: string = core.getInput('event')
+    const userId: string = core.getInput('userId')
     // const properties: string = core.getInput('properties')
 
     console.log(`Sending event to ${process.env.RUDDERSTACK_DATAPLANE_URL}`)
 
     client.track({
       event,
-      userId: user
+      userId
       // properties: properties,
     })
 
