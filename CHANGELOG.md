@@ -1,3 +1,19 @@
+# v0.4.0 (Wed Nov 01 2023)
+
+#### Enhancements
+
+- feat: commit dist/ ([@mwflaher](https://github.com/mwflaher))
+
+#### Bug Fixes
+
+- fix: bug ([@mwflaher](https://github.com/mwflaher))
+
+#### Authors: 1
+
+- Matt F ([@mwflaher](https://github.com/mwflaher))
+
+---
+
 # v0.3.2 (Wed Nov 01 2023)
 
 #### Bug Fixes
