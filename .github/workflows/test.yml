@@ -61,8 +61,8 @@ jobs:
         id: run
         uses: ./
         with:
-          name: "TestEvent"
-          user: "TestUser"
+          event: "TestEvent"
+          userId: "TestUser"
           properties: "{}"
 
       - name: Print Output
