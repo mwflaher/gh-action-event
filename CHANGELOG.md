@@ -1,3 +1,18 @@
+# v0.3.2 (Wed Nov 01 2023)
+
+#### Bug Fixes
+
+- fix: fix test action ([@mwflaher](https://github.com/mwflaher))
+- Bump prettier-eslint from 16.1.1 to 16.1.2 [#16](https://github.com/mwflaher/gh-rudderstack-action/pull/16) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @types/jest from 29.5.6 to 29.5.7 [#18](https://github.com/mwflaher/gh-rudderstack-action/pull/18) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Matt F ([@mwflaher](https://github.com/mwflaher))
+
+---
+
 # v0.3.1 (Tue Oct 31 2023)
 
 #### Bug Fixes
