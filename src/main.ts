@@ -1,4 +1,6 @@
 import * as core from '@actions/core'
+import * as github from '@actions/github'
+
 import type Analytics from '@rudderstack/rudder-sdk-node'
 
 export async function run(client: Analytics): Promise<void> {
@@ -9,10 +11,14 @@ export async function run(client: Analytics): Promise<void> {
 
     console.log(`Sending event to ${process.env.RUDDERSTACK_DATAPLANE_URL}`)
 
+    const { repo } = github.context
+
     client.track({
       event,
-      userId
-      // properties: properties,
+      userId,
+      properties: {
+        ghRepo: repo
+      }
     })
 
     core.setOutput('success', 'true')

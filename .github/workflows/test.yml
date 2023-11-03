@@ -63,7 +63,6 @@ jobs:
         with:
           event: "TestEvent"
           userId: "TestUser"
-          properties: "{}"
 
       - name: Print Output
         run: "echo \"success: ${{ steps.run.outputs.success }}\""

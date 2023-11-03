@@ -1,5 +1,6 @@
 import Analytics from '@rudderstack/rudder-sdk-node'
 import * as core from '@actions/core'
+import * as github from '@actions/github'
 import * as main from '../src/main'
 
 /* Mock the GitHub Actions core library */
@@ -28,11 +29,19 @@ describe('action', () => {
           return ''
       }
     })
+    Object.defineProperty(github.context, 'repo', {
+      get: jest.fn(() => 'test_repo'),
+      set: jest.fn()
+    })
+
     await main.run(analytics)
     expect(runMock).toHaveReturned()
     expect(trackMock).toHaveBeenCalledWith({
       event: 'test_event',
-      userId: 'test_user'
+      userId: 'test_user',
+      properties: {
+        ghRepo: 'test_repo'
+      }
     })
     expect(setOutputMock).toHaveBeenNthCalledWith(
       1,
