@@ -30,7 +30,9 @@ describe('action', () => {
       }
     })
     Object.defineProperty(github.context, 'repo', {
-      get: jest.fn(() => 'test_repo'),
+      get: jest.fn(() => {
+        return { owner: 'test_user', repo: 'test_repo' }
+      }),
       set: jest.fn()
     })
 
@@ -40,7 +42,8 @@ describe('action', () => {
       event: 'test_event',
       userId: 'test_user',
       properties: {
-        ghRepo: 'test_repo'
+        githubRepo: 'test_repo',
+        githubRepoOwner: 'test_user'
       }
     })
     expect(setOutputMock).toHaveBeenNthCalledWith(
