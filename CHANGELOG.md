@@ -1,3 +1,21 @@
+# v0.5.0 (Sat Nov 04 2023)
+
+#### Enhancements
+
+- feat: add support for github repo (Matt Flaherty mwflaher@alum.mit.edu)
+
+#### Bug Fixes
+
+- fix: short name (Matt Flaherty mwflaher@alum.mit.edu)
+- fix: consistent test user name (Matt Flaherty mwflaher@alum.mit.edu)
+- fix: split repo and owner (Matt Flaherty mwflaher@alum.mit.edu)
+
+#### Authors: 1
+
+- Matt Flaherty (Matt Flaherty mwflaher@alum.mit.edu)
+
+---
+
 # v0.4.0 (Wed Nov 01 2023)
 
 #### Enhancements
