@@ -1,3 +1,15 @@
+# v0.7.1 (Sat Nov 04 2023)
+
+#### Bug Fixes
+
+- fix: never error out, just success false and log (Matt Flaherty mwflaher@alum.mit.edu)
+
+#### Authors: 1
+
+- Matt Flaherty (Matt Flaherty mwflaher@alum.mit.edu)
+
+---
+
 # v0.7.0 (Sat Nov 04 2023)
 
 #### Enhancements

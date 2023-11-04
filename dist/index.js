@@ -79450,7 +79450,8 @@ async function run(client) {
     catch (error) {
         if (error instanceof Error) {
             const errorMessage = `Run failed: ${error.message}`;
-            core.setFailed(errorMessage);
+            console.log(errorMessage);
+            core.setOutput('success', 'false');
         }
     }
 }
