@@ -1,3 +1,21 @@
+# v0.7.0 (Sat Nov 04 2023)
+
+#### Enhancements
+
+- feat: add support for properties in JSON (Matt Flaherty mwflaher@alum.mit.edu)
+
+#### Bug Fixes
+
+- fix: moar (Matt Flaherty mwflaher@alum.mit.edu)
+- fix: playing with yml (Matt Flaherty mwflaher@alum.mit.edu)
+- fix: test action (Matt Flaherty mwflaher@alum.mit.edu)
+
+#### Authors: 1
+
+- Matt Flaherty (Matt Flaherty mwflaher@alum.mit.edu)
+
+---
+
 # v0.6.0 (Sat Nov 04 2023)
 
 #### Enhancements
