@@ -25,6 +25,8 @@ describe('action', () => {
           return 'test_event'
         case 'userId':
           return 'test_user'
+        case 'properties':
+          return JSON.stringify({ testProperty: 'test_value' })
         default:
           return ''
       }
@@ -54,7 +56,8 @@ describe('action', () => {
         ghRepoOwner: 'test_user',
         ghWorkflow: 'test_workflow',
         ghAction: 'test_action',
-        ghSha: 'test_sha'
+        ghSha: 'test_sha',
+        testProperty: 'test_value'
       }
     })
     expect(setOutputMock).toHaveBeenNthCalledWith(
