@@ -79432,13 +79432,16 @@ async function run(client) {
         const userId = core.getInput('userId');
         // const properties: string = core.getInput('properties')
         console.log(`Sending event to ${process.env.RUDDERSTACK_DATAPLANE_URL}`);
-        const { repo } = github.context;
+        const { action, repo, sha, workflow } = github.context;
         client.track({
             event,
             userId,
             properties: {
                 ghRepo: repo.repo,
-                ghRepoOwner: repo.owner
+                ghRepoOwner: repo.owner,
+                ghSha: sha,
+                ghWorkflow: workflow,
+                ghAction: action
             }
         });
         core.setOutput('success', 'true');

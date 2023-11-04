@@ -1,3 +1,15 @@
+# v0.6.0 (Sat Nov 04 2023)
+
+#### Enhancements
+
+- feat: add workflow action and sha (Matt Flaherty mwflaher@alum.mit.edu)
+
+#### Authors: 1
+
+- Matt Flaherty (Matt Flaherty mwflaher@alum.mit.edu)
+
+---
+
 # v0.5.0 (Sat Nov 04 2023)
 
 #### Enhancements
