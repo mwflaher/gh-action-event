@@ -29,9 +29,17 @@ describe('action', () => {
           return ''
       }
     })
-    Object.defineProperty(github.context, 'repo', {
+    Object.defineProperty(github, 'context', {
       get: jest.fn(() => {
-        return { owner: 'test_user', repo: 'test_repo' }
+        return {
+          repo: {
+            owner: 'test_user',
+            repo: 'test_repo'
+          },
+          workflow: 'test_workflow',
+          action: 'test_action',
+          sha: 'test_sha'
+        }
       }),
       set: jest.fn()
     })
@@ -43,7 +51,10 @@ describe('action', () => {
       userId: 'test_user',
       properties: {
         ghRepo: 'test_repo',
-        ghRepoOwner: 'test_user'
+        ghRepoOwner: 'test_user',
+        ghWorkflow: 'test_workflow',
+        ghAction: 'test_action',
+        ghSha: 'test_sha'
       }
     })
     expect(setOutputMock).toHaveBeenNthCalledWith(
