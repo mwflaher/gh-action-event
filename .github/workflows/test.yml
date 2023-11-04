@@ -61,8 +61,8 @@ jobs:
         id: run
         uses: ./
         with:
-          event: "TestEvent"
-          userId: "TestUser"
+          event: "test_event"
+          userId: "test_user"
 
       - name: Print Output
         run: "echo \"success: ${{ steps.run.outputs.success }}\""
