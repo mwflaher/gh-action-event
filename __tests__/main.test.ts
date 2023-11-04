@@ -42,8 +42,8 @@ describe('action', () => {
       event: 'test_event',
       userId: 'test_user',
       properties: {
-        githubRepo: 'test_repo',
-        githubRepoOwner: 'test_user'
+        ghRepo: 'test_repo',
+        ghRepoOwner: 'test_user'
       }
     })
     expect(setOutputMock).toHaveBeenNthCalledWith(

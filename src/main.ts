@@ -17,8 +17,8 @@ export async function run(client: Analytics): Promise<void> {
       event,
       userId,
       properties: {
-        githubRepo: repo.repo,
-        githubRepoOwner: repo.owner
+        ghRepo: repo.repo,
+        ghRepoOwner: repo.owner
       }
     })
 
