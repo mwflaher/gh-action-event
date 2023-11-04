@@ -30,7 +30,8 @@ export async function run(client: Analytics): Promise<void> {
   } catch (error) {
     if (error instanceof Error) {
       const errorMessage = `Run failed: ${error.message}`
-      core.setFailed(errorMessage)
+      console.log(errorMessage)
+      core.setOutput('success', 'false')
     }
   }
 }
